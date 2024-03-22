@@ -12,6 +12,7 @@ the deb package, rather than the traditional `debuild` command.
 Before building, ensure that the following packages are installed:
 
 * equivs
+* Yacc or Bison
 * libx11-dev
 * libxinerama-dev
 * libxft-dev
