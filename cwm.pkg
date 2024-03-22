@@ -1,0 +1,13 @@
+Package: cwm
+Version: 999+ragnarok01
+Maintainer: Ian LeCorbeau <I-LeCorbeau@protonmail.com>
+Architecture: amd64
+Section: x11
+Provides: x-window-manager
+Files: cwm /usr/bin/
+ cwm.1 /usr/share/man/man1/
+ cwmrc.5 /usr/share/man/man5/
+Readme: README.md
+Copyright: pkg.license
+Description: Calm Window Manager
+ Portable version of OpenBSD's calm window manager.
