@@ -1,7 +1,7 @@
 # Makefile for cwm
-# $Ragnarok: Makefile,v 1.6 2023/12/02 19:07:47 lecorbeau Exp $
+# $Ragnarok: Makefile,v 1.7 2024/03/24 17:52:14 lecorbeau Exp $
 
-include ${TOPDIR}/usr/share/X11/mk/xprogs.mk
+CC=		clang
 
 PROG=		cwm
 
@@ -18,13 +18,14 @@ OBJS=		calmwm.o screen.o xmalloc.o client.o menu.o \
 		strtonum.o reallocarray.o
 		
 CPPFLAGS+=	-I${X11BASE}/include -I${X11BASE}/include/freetype2 \
-		${HARDENING_CPPFLAGS}
+		-D_FORTIFY_SOURCE=2
 
-CFLAGS?=	-Wall ${O_FLAG} -D_GNU_SOURCE ${CFLAGS_LTO} ${HARDENING_CFLAGS}
+CFLAGS?=	-Wall -O2 -D_GNU_SOURCE -flto=thin -Wformat -Wformat-security \
+		-fstack-clash-protection -fstack-protector-strong -fcf-protection
 
-LDFLAGS+=	${LDFLAGS_LTO} ${HARDENING_LDFLAGS} -L${X11BASE}/lib -lXft -lfreetype \
-		-lX11-xcb -lX11 -lxcb -lXau -lXdmcp -lfontconfig -lexpat -lfreetype -lz \
-		-lXrandr -lXext
+LDFLAGS+=	-flto-thin -Wl,-O2 -Wl,-z,relro,-z,now -Wl,--as-needed -L${X11BASE}/lib \
+		-lXft -lfreetype -lX11-xcb -lX11 -lxcb -lXau -lXdmcp -lfontconfig -lexpat \
+		-lfreetype -lz -lXrandr -lXext
 
 MANPREFIX?=	${PREFIX}/share/man
 
