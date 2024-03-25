@@ -1,5 +1,5 @@
 # Makefile for cwm
-# $Ragnarok: Makefile,v 1.7 2024/03/24 17:52:14 lecorbeau Exp $
+# $Ragnarok: Makefile,v 1.8 2024/03/25 16:47:50 lecorbeau Exp $
 
 CC=		clang
 
@@ -23,7 +23,7 @@ CPPFLAGS+=	-I${X11BASE}/include -I${X11BASE}/include/freetype2 \
 CFLAGS?=	-Wall -O2 -D_GNU_SOURCE -flto=thin -Wformat -Wformat-security \
 		-fstack-clash-protection -fstack-protector-strong -fcf-protection
 
-LDFLAGS+=	-flto-thin -Wl,-O2 -Wl,-z,relro,-z,now -Wl,--as-needed -L${X11BASE}/lib \
+LDFLAGS+=	-flto=thin -Wl,-O2 -Wl,-z,relro,-z,now -Wl,--as-needed -L${X11BASE}/lib \
 		-lXft -lfreetype -lX11-xcb -lX11 -lxcb -lXau -lXdmcp -lfontconfig -lexpat \
 		-lfreetype -lz -lXrandr -lXext
 
