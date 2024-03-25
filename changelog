@@ -1,0 +1,5 @@
+cwm (999+ragnarok01) stable; urgency=medium
+
+  * Initial build of OpenBSD's Calm Window Manager.
+
+ -- Ian LeCorbeau <I-LeCorbeau@protonmail.com>  Mon, 25 Mar 2024 12:38:13 -0400

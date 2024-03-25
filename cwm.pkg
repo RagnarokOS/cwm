@@ -9,5 +9,6 @@ Files: cwm /usr/bin/
  cwmrc.5 /usr/share/man/man5/
 Readme: README.md
 Copyright: pkg.license
+Changelog: changelog
 Description: Calm Window Manager
  Portable version of OpenBSD's calm window manager.
